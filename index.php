@@ -14,15 +14,24 @@
 </head>
 <body class="bg-indigo-100">
     <h1 class="font-bold text-3xl text-center py-5">Rajshahi Book Shop</h1>
-    <h3 class="text-center text-xl font-semibold">Books Lists</h3>
-    <?php
-        
-        $books = fetch_data_from_database();
+    <!-- Search Bar -->
 
+    <form action="index.php" method="GET" class="mt-4 mb-12">
+        <div class="flex justify-center">
+            <input type="text" class="w-96 py-2 rounded-l-lg" name="query" required>
+            <button type="submit" class="bg-green-400 py-2 px-2 rounded-r-lg"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <circle cx="15" cy="15" r="4" /> <path d="M18.5 18.5l2.5 2.5" /> <path d="M4 6h16" /> <path d="M4 12h4" /> <path d="M4 18h4" /> </svg></button>
+        </div>
+    </form>
+
+
+    
+    <h3 class="text-center text-xl font-semibold"><?php echo isset($_GET["query"])? "Search Results: {$_GET['query']}": "All Books" ?></h3>
+    <?php
+        $books = fetch_data_from_database();
     ?>
 
     <!-- displaying books in a table -->
-    <table class="mx-auto mt-10">
+    <table class="mx-auto mt-10 bg-white">
         <thead>
             <th>Title</th>
             <th>Author</th>
