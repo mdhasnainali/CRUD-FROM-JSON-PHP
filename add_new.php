@@ -16,10 +16,6 @@
 <body class="bg-indigo-100">
     <h1 class="font-bold text-3xl text-center py-5">Rajshahi Book Shop</h1>
     <h3 class="text-center text-xl font-semibold">Add New Books</h3>
-    <?php
-        $books = fetch_data_from_database();
-
-    ?>
 
     <!-- displaying books in a table -->
     <form action="controller.php" method="POST" class="w-full flex flex-col py-10">
